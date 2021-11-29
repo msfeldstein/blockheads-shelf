@@ -13,15 +13,15 @@
 .grail-builder__preview-container {
   position: sticky;
 
-  /* To center the preview when the container is sticking. 250px
+  /* To center the preview when the container is sticking. 225px
   is half the height of the preview image */
-  top: calc(100vh - 50% - 200px);
+  top: calc(100vh - 50% - 225px);
 }
 
 .grail-builder__placeholder-image {
   background-size: cover;
-  width: 400px;
-  height: 400px;
+  width: 450px;
+  height: 450px;
 }
 
 .grail-builder__tokens {
