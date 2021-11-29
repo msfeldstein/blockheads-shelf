@@ -58,3 +58,9 @@
 .grail-builder__part--selected .part-label {
   font-weight: 700;
 }
+
+.grail-builder__demo-mode {
+  text-align: center;
+  font-weight: 600;
+  color: #00AF4D;
+}

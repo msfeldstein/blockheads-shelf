@@ -60,6 +60,8 @@ export default function GrailBuilder() {
     return <div>loading...</div>
   }
 
+  const demoMode = usingFallback ? <div className="grail-builder__demo-mode">Demo Mode: Using partsbin.eth's parts to play</div> : null
+
   return (
     <div className="grail-builder">
       <div className="grail-builder__preview">
@@ -70,6 +72,7 @@ export default function GrailBuilder() {
 
 
       <div className="grail-builder__tokens">
+        {demoMode}
         {tokens.map(token => (
           <div key={token.tokenId} className="grail-builder__token">
             {!partsMap[token.tokenId]
