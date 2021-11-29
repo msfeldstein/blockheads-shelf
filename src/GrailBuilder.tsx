@@ -4,6 +4,8 @@ import useBlockheadsParts, { partsFields } from "./useBlockheadsParts";
 import './GrailBuilder.css';
 import placeholderImage from './grail-placeholder.png';
 import GrailBuilderPartTile from "./GrailBuilderPartTile";
+import Connect from "./Connect";
+import { useEthers } from "@usedapp/core";
 
 interface GrailState {
   background: number | null;
@@ -36,6 +38,7 @@ function GrailPreview({ svgData }: { svgData: string }) {
 }
 
 export default function GrailBuilder() {
+  let { account } = useEthers();
   const [grailState, setGrailState] = useState<GrailState>({
     background: null,
     body: null,
@@ -55,6 +58,9 @@ export default function GrailBuilder() {
     }).join('');
   }, [grailState, partsMap]);
 
+  if (!account) {
+    return <Connect />
+  }
   console.log({loadingState})
   if (loadingState !== LoadingState.LOADED) {
     return <div>loading...</div>
