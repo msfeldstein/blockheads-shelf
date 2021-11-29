@@ -60,7 +60,7 @@ export default function GrailBuilder() {
     return <div>loading...</div>
   }
 
-  const demoMode = usingFallback ? <div className="grail-builder__demo-mode">Demo Mode: Using partsbin.eth's parts to play</div> : null
+  const demoMode = usingFallback ? <div className="grail-builder__demo-mode">Demo Mode: Using partsbin.eth's parts to play.  <a href="https://mint.blockheads.family">Mint</a> or buy on <a href="https://opensea.io/collection/blockheads-family">OpenSea</a> to play with your own.</div> : null
 
   return (
     <div className="grail-builder">

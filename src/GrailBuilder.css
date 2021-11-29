@@ -64,3 +64,8 @@
   font-weight: 600;
   color: #00AF4D;
 }
+
+.grail-builder__demo-mode a {
+  color: #00AF4D;
+  text-decoration: underline;
+}
