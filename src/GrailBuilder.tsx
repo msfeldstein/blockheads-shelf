@@ -44,7 +44,8 @@ export default function GrailBuilder() {
     face: null,
     headwear: null,
   });
-  const { loadingState, tokens } = useBlockheadsList();
+  // Fallback to partsbin.eth's account so people without blockheads can play
+  const { loadingState, tokens, usingFallback } = useBlockheadsList(undefined, "0xf1218d1b103be9a3f375c50a2eddd224966d242a");
   const partsMap = useBlockheadsParts(tokens);
 
   const grailPreviewSvg = useMemo(() => {
