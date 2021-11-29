@@ -72,5 +72,29 @@
 
   .submit-swap-button {
     width: calc(100vw - 32px);
-}
+  }
+
+  /* GRAIL BUILDER */
+
+  .grail-builder {
+    flex-direction: column;
+  }
+
+  .grail-builder__preview {
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    background: white;
+  }
+
+  .grail-builder__tokens {
+    overflow: hidden;
+  }
+
+  .grail-builder__placeholder-image {
+    height: 25vh;
+    min-height: 200px;
+    width: 100%;
+  }
 }

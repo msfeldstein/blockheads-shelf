@@ -8,13 +8,20 @@
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
-  min-height: 1000px;
 }
 
 .grail-builder__preview-container {
   position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
+
+  /* To center the preview when the container is sticking. 250px
+  is half the height of the preview image */
+  top: calc(100vh - 50% - 200px);
+}
+
+.grail-builder__placeholder-image {
+  background-size: cover;
+  width: 400px;
+  height: 400px;
 }
 
 .grail-builder__tokens {
