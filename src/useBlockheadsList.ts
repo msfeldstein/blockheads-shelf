@@ -15,7 +15,7 @@ export default function useBlockheadsList(address?: string, fallbackAddress?: st
   let { account } = useEthers();
   const contract = useBlockheadsContract();
 
-  const targetAccount = address || account;
+  const targetAccount = address || account || fallbackAddress;
 
   const [loadingState, setLoadingState] = useState<LoadingState>(
     LoadingState.FETCHING_BALANCE
@@ -25,7 +25,7 @@ export default function useBlockheadsList(address?: string, fallbackAddress?: st
 
   useEffect(() => {
     async function effect() {
-      if (!targetAccount || !contract) return
+      if (!contract) return
       let usingAccount = targetAccount
 
       let balance = await contract.balanceOf(usingAccount);

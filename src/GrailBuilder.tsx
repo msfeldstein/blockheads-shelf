@@ -55,7 +55,7 @@ export default function GrailBuilder() {
     }).join('');
   }, [grailState, partsMap]);
 
-
+  console.log({loadingState})
   if (loadingState !== LoadingState.LOADED) {
     return <div>loading...</div>
   }
