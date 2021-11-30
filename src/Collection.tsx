@@ -1,7 +1,3 @@
-import * as ethers from "ethers";
-import { useEffect, useState } from "react";
-import { Blockhead } from "./types";
-import { address as contractAddress, ABI } from "./ContractInfo";
 import CollectionTile from "./CollectionTile";
 import "./Collection.css";
 import { useEthers } from "@usedapp/core";
