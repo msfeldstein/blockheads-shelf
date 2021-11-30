@@ -14,6 +14,7 @@ export enum LoadingState {
 export default function useBlockheadsList(address?: string, fallbackAddress?: string) {
   let { account } = useEthers();
   const contract = useBlockheadsContract();
+  console.log({account, address, fallbackAddress})
 
   const targetAccount = address || account;
 
