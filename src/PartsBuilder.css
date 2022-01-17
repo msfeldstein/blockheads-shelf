@@ -1,0 +1,79 @@
+.grail-builder {
+    display: flex;
+  }
+  
+  .grail-builder__preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .grail-builder__preview-container {
+    position: sticky;
+  
+    /* To center the preview when the container is sticking. 225px
+    is half the height of the preview image */
+    top: calc(100vh - 50% - 225px);
+  }
+  
+  .grail-builder__placeholder-image {
+    background-size: cover;
+    width: 450px;
+    height: 450px;
+  }
+  
+  .grail-builder__tokens {
+    flex: 1;
+  }
+  
+  .grail-builder__parts {
+    display: flex;
+  }
+  
+  .grail-builder__part {
+    width: 120px;
+    padding-top: 10px;
+  }
+  
+  .grail-builder__part .part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .grail-builder__part .part-label {
+    text-align: center;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .grail-builder__part {
+    border: 1px solid transparent;
+  }
+  
+  .grail-builder__part--selected {
+    border: 1px solid black;
+  }
+  
+  .grail-builder__part--selected + .grail-builder__part--selected {
+    border-left-color: transparent;
+  }
+  
+  .grail-builder__part--selected .part-label {
+    font-weight: 700;
+  }
+  
+  .grail-builder__demo-mode {
+    text-align: center;
+    font-weight: 600;
+    color: #00AF4D;
+  }
+  
+  .grail-builder__demo-mode a {
+    color: #00AF4D;
+    text-decoration: underline;
+  }
+  
