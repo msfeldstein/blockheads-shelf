@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Blockhead } from "./types";
 import { useEthers } from "@usedapp/core";
 import useBlockheadsContract from "./useBlockheadsContract";
-import { fetchBlockhead } from "./BlockheadsUtil";
+import { fetchTokenWithSVG } from "./BlockheadsUtil";
 
 export enum LoadingState {
   FETCHING_BALANCE,
@@ -41,7 +41,7 @@ export default function useBlockheadsList(address?: string, fallbackAddress?: st
 
       for (var i = 0; i < balance.toNumber(); i++) {
         const id = await contract.tokenOfOwnerByIndex(usingAccount, i);
-        promises.push(fetchBlockhead(id.toNumber(), contract));
+        promises.push(fetchTokenWithSVG(id.toNumber(), contract));
       }
 
       const blockheads = await Promise.all(promises);

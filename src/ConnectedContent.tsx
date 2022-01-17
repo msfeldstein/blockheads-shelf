@@ -3,6 +3,7 @@ import Collection from "./Collection";
 import { Route, Switch } from "react-router";
 import ViewToken from "./ViewToken";
 import Reconfigurator from "./Reconfigurator";
+import PartsBuilder from "./PartsBuilder";
 
 export default function ConnectedContent() {
   return (
@@ -10,6 +11,7 @@ export default function ConnectedContent() {
       <Route path="/build-a-grail">
         <GrailBuilder />
       </Route>
+      <Route path="/play-zone"><PartsBuilder /></Route>
 
       <Route path="/view/:tokenId">
         <ViewToken />

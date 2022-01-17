@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import { Blockhead, Parts } from "./types";
 import useBlockheadsContract from "./useBlockheadsContract";
-import { fetchBlockhead, fetchParts } from "./BlockheadsUtil";
+import { fetchTokenWithSVG, fetchParts } from "./BlockheadsUtil";
 import PartsDisplay from "./PartsDisplay";
 import "./ViewToken.css";
 import { Link } from "react-router-dom";
@@ -21,7 +21,7 @@ export default function ViewToken() {
     let id = tokenId as string;
     async function effect() {
       if (!contract) return;
-      const blockhead = await fetchBlockhead(parseInt(id), contract)
+      const blockhead = await fetchTokenWithSVG(parseInt(id), contract)
       setToken(blockhead);
       const parts = await fetchParts(parseInt(id), contract);
       setParts(parts);

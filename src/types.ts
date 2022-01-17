@@ -6,6 +6,16 @@ export type Blockhead = {
   attributes?: { [name: string]: string };
 };
 
+export type BlockheadPart = {
+  tokenId: number;
+  tokenURI: string;
+}
+
+export type IndividualPart = {
+  tokenId: number;
+  tokenURI: string;
+  rawSVG: string;
+}
 export type PartInfo = {
   svg: string;
   label: string;

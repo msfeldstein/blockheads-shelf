@@ -8,29 +8,24 @@ function hexToUTF8(hex: string) {
 
 function dataBlockToSVG(dataBlockStr: string) {
     return hexToUTF8(dataBlockStr.substr(2))
-}
+} 
 
-export async function fetchBlockhead(tokenId: number, contract: ethers.Contract) {
-  const minted = await contract.nextTokenId();
-  if (tokenId >= minted.toNumber()) {
-    tokenId = minted.toNumber();
-  }
+export async function fetchTokenWithSVG(tokenId: number, contract: ethers.Contract) {
   const tokenURI = await contract.tokenURI(tokenId);
   const json = JSON.parse(
     Buffer.from(tokenURI.split(",")[1], "base64").toString()
   );
   const image = Buffer.from(json.image.split(",")[1], "base64").toString();
-  const blockhead: Blockhead = {
-    tokenId: tokenId,
+  return {
+    tokenId,
     tokenURI,
+    image,
     name: json.name,
-    image: image,
     attributes: json.attributes.reduce((prev: any, curr: any) => {
       prev[curr.trait_type] = curr.value;
       return prev;
-    }, {}),
-  };
-  return blockhead
+    }, {})
+  }
 }
 
 export async function fetchParts(
