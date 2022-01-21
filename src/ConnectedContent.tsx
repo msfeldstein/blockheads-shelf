@@ -3,7 +3,7 @@ import Collection from "./Collection";
 import { Route, Switch } from "react-router";
 import ViewToken from "./ViewToken";
 import Reconfigurator from "./Reconfigurator";
-import GrailBuilderV2 from "./GraliBuilderV2";
+import GrailBuilderV2 from "./GrailBuilderV2";
 
 export default function ConnectedContent() {
   return (
