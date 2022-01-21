@@ -76,3 +76,10 @@
   color: #00AF4D;
   text-decoration: underline;
 }
+
+
+
+/* V2 */
+.grail-builder__parts {
+  flex-wrap: wrap;
+}

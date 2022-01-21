@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Blockhead, BlockheadPart, IndividualPart } from "./types";
-import { useContractCall, useEthers } from "@usedapp/core";
-import useBlockheadsContract from "./useBlockheadsContract";
+import { IndividualPart } from "./types";
+import { useEthers } from "@usedapp/core";
 import { fetchTokenWithSVG } from "./BlockheadsUtil";
 import useBlockheadsPartsContract from "./useBlockheadsPartsContract";
 
@@ -39,18 +38,17 @@ export default function useBlockheadsPartsList(address?: string) {
       }
 
       const parts = await Promise.all(promises);
-      
+
       setTokens(parts.map(part => {
         console.log(part.image)
-        const rawSVG =/<g id='content'>(.*)<\/g>/.exec(part.image)![1]
-        return {...part,rawSVG: rawSVG}
+        const rawSVG = /<g id='content'>(.*)<\/g>/.exec(part.image)![1]
+        return { ...part, rawSVG: rawSVG, layer: part.attributes.Layer }
       }))
-      
+
       setLoadingState(LoadingState.LOADED);
     }
     effect();
   }, [contract, targetAccount]);
-  console.log(tokens)
   return {
     account,
     loadingState,

@@ -1,7 +1,7 @@
 import { useEthers } from "@usedapp/core";
 import { ethers } from "ethers";
 import { useMemo } from "react";
-import { address as contractAddress, ABI } from "./ContractInfo";
+import { address as contractAddress, ABI } from "./ContractV2";
 
 export default function useBlockheadsContract() {
   const { library } = useEthers()

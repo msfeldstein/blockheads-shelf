@@ -14,7 +14,7 @@ export default function CollectionPartsTile({ token, prefix }: { token: Blockhea
     (attr: any) => attr.trait_type === "Piece"
   ).value;
   return (
-    <Link to={'/build-a-grail'}>
+    <Link to={'/build-a-grail-v2'}>
       <div className="collection-tile">
         <div dangerouslySetInnerHTML={{ __html: image }}></div>
         <div className="name">{name}</div>

@@ -18,7 +18,7 @@ const config = {
       "https://rinkeby.infura.io/v3/0d5355d2f5764f35801138abefcc8e00",
   },
 };
-console.log({config})
+console.log({ config })
 
 ReactDOM.render(
   <React.StrictMode>

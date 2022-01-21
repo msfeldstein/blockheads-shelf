@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { Blockhead, Parts } from "./types";
+import { Parts } from "./types";
 
 function hexToUTF8(hex: string) {
   if (hex.length === 0) return "";
@@ -7,8 +7,8 @@ function hexToUTF8(hex: string) {
 }
 
 function dataBlockToSVG(dataBlockStr: string) {
-    return hexToUTF8(dataBlockStr.substr(2))
-} 
+  return hexToUTF8(dataBlockStr.substr(2))
+}
 
 export async function fetchTokenWithSVG(tokenId: number, contract: ethers.Contract) {
   const tokenURI = await contract.tokenURI(tokenId);

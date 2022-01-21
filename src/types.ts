@@ -15,6 +15,8 @@ export type IndividualPart = {
   tokenId: number;
   tokenURI: string;
   rawSVG: string;
+  name: string;
+  layer: string;
 }
 export type PartInfo = {
   svg: string;
@@ -32,4 +34,4 @@ export type Parts = {
 
 export type PartType = "background" | "body" | "arms" | "head" | "face" | "headwear"
 
-export type Swaps = {[key in PartType] : boolean}
+export type Swaps = { [key in PartType]: boolean }
