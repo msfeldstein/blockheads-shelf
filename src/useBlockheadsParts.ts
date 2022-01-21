@@ -1,4 +1,4 @@
-import * as ethers from "ethers";
+import { Contract } from "@ethersproject/contracts";
 import { useEffect, useState } from "react";
 import { fetchParts } from "./BlockheadsUtil";
 import { Blockhead } from "./types";
@@ -34,7 +34,7 @@ export default function useBlockheadsParts(tokens: Blockhead[]) {
   const [partsMap, setPartsMap] = useState<PartsState>({});
 
   useEffect(() => {
-    async function fetchPartsForTokens(contract: ethers.Contract) {
+    async function fetchPartsForTokens(contract: Contract) {
       let updatedPartsMap: PartsState = {};
 
       for (var i = 0; i < tokens.length; i++) {

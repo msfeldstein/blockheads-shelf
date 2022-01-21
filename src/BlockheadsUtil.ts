@@ -1,4 +1,5 @@
-import { ethers } from "ethers";
+
+import { Contract } from "@ethersproject/contracts";
 import { Parts } from "./types";
 
 function hexToUTF8(hex: string) {
@@ -10,7 +11,7 @@ function dataBlockToSVG(dataBlockStr: string) {
   return hexToUTF8(dataBlockStr.substr(2))
 }
 
-export async function fetchTokenWithSVG(tokenId: number, contract: ethers.Contract) {
+export async function fetchTokenWithSVG(tokenId: number, contract: Contract) {
   const tokenURI = await contract.tokenURI(tokenId);
   const json = JSON.parse(
     Buffer.from(tokenURI.split(",")[1], "base64").toString()
@@ -30,7 +31,7 @@ export async function fetchTokenWithSVG(tokenId: number, contract: ethers.Contra
 
 export async function fetchParts(
   tokenId: number,
-  contract: ethers.Contract
+  contract: Contract
 ): Promise<Parts> {
   const [
     bgData,

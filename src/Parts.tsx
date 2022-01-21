@@ -1,6 +1,7 @@
 
+import { Contract } from "@ethersproject/contracts";
+import { Web3Provider } from "@ethersproject/providers";
 import { useEthers } from "@usedapp/core";
-import * as ethers from "ethers";
 import { useEffect, useState } from "react";
 import { address as contractAddress, ABI } from "./ContractInfo";
 import PartsRow from "./PartsRow";
@@ -55,7 +56,7 @@ function cap(str: string) {
 
 export default function Parts() {
   let { library, account } = useEthers();
-//   account = "0x4e392d913A69f74359504A39ED41E5d5FEb53d43"
+  //   account = "0x4e392d913A69f74359504A39ED41E5d5FEb53d43"
   const [loadingState, setLoadingState] = useState<LoadingState>(
     LoadingState.FETCHING_BALANCE
   );
@@ -64,8 +65,8 @@ export default function Parts() {
   useEffect(() => {
     async function effect() {
       if (!library) return
-      const provider = new ethers.providers.Web3Provider(library.provider);
-      const contract = new ethers.Contract(contractAddress!, ABI, provider);
+      const provider = new Web3Provider(library.provider);
+      const contract = new Contract(contractAddress!, ABI, provider);
       const balance = await contract.balanceOf(account);
       setLoadingState(LoadingState.GETTING_TOKEN_IDS);
       const tokens = [];
@@ -84,7 +85,7 @@ export default function Parts() {
           if (svg.length == 0) continue
           // @ts-ignore
           (data[`${field}Data`] as string[]).push(hexToUTF8(svg.substring(2)));
-          let label : string = await contract[`get${cap(field)}Label`](tokens[i]);
+          let label: string = await contract[`get${cap(field)}Label`](tokens[i]);
           // @ts-ignore
           (data[`${field}Label`] as string[]).push(label);
         }
