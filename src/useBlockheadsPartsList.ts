@@ -32,7 +32,7 @@ export default function useBlockheadsPartsList(address?: string) {
 
       const promises = [];
 
-      for (var i = 0; i < balance.toNumber(); i++) {
+      for (var i = balance.toNumber() - 1; i >= 0; i--) {
         const id = await contract.tokenOfOwnerByIndex(usingAccount, i);
         promises.push(fetchTokenWithSVG(id.toNumber(), contract));
       }

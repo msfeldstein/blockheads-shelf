@@ -27,9 +27,14 @@ h2 {
 .sub-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 
 .sub-buttons div {
+    margin-right: 8px;
+    margin-left: 8px;
     cursor: pointer;
+}
+
+.sub-buttons > div:first-child {
+    margin-left: 0;
 }

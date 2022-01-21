@@ -7,6 +7,8 @@ import PartsDisplay from "./PartsDisplay";
 import "./ViewToken.css";
 import { Link } from "react-router-dom";
 import downloadSVG from "./downloadSVG";
+import { useContractFunction } from "@usedapp/core";
+import { useHistory } from "react-router-dom";
 
 export default function ViewToken() {
   let { tokenId } = useParams<{ tokenId?: string }>();
@@ -16,7 +18,9 @@ export default function ViewToken() {
   const svgContainerRef = useRef<HTMLDivElement>() as React.MutableRefObject<
     HTMLInputElement
   >;
-
+  const { send } = useContractFunction(contract!, "separate");
+  const [sendingSeparate, setSendingSeparate] = useState(false);
+  const history = useHistory()
   useEffect(() => {
     let id = tokenId as string;
     async function effect() {
@@ -40,6 +44,14 @@ export default function ViewToken() {
     const svg = svgContainerRef.current.childNodes[0] as SVGGraphicsElement;
     downloadSVG(svg)
   };
+
+  const separate = async () => {
+    if (sendingSeparate) return
+    setSendingSeparate(true)
+    await send(token.tokenId)
+    history.push("/collection")
+  }
+
   return (
     <div className="view-token">
       <div className="token-info-container">
@@ -54,8 +66,13 @@ export default function ViewToken() {
           <div className="reconfigurator-button">
             <Link to={`/reconfigurator/${tokenId}`}>Reconfigurate</Link>
           </div>
+          |
           <div className="download-button" onClick={download}>
             Download
+          </div>
+          |
+          <div className="separate-button" onClick={separate}>
+            {sendingSeparate ? "Separating..." : "Separate"}
           </div>
         </div>
       </div>

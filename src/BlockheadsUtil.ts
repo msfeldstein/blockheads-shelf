@@ -46,14 +46,14 @@ export async function fetchParts(
     faceLabel,
     headwearLabel,
   ] = await Promise.all([
-    contract.getBgData(tokenId),
+    contract.getBackgroundData(tokenId),
     contract.getBodyData(tokenId),
     contract.getArmsData(tokenId),
     contract.getHeadData(tokenId),
     contract.getFaceData(tokenId),
     contract.getHeadwearData(tokenId),
 
-    contract.getBgLabel(tokenId),
+    contract.getBackgroundLabel(tokenId),
     contract.getBodyLabel(tokenId),
     contract.getArmsLabel(tokenId),
     contract.getHeadLabel(tokenId),
