@@ -1,7 +1,7 @@
 export const address =
   window.location.hostname === "shelf.blockheads.family"
     ? "fff"
-    : "0x469D66577B7291936D3780F34B8fdD1Ecb06c98C";
+    : "0xEC0263Df5E665957e1929f2B8eafaB5C80729A4B";
 
 export const ABI = [
   "function tokenOfOwnerByIndex(address owner, uint256 index) public view returns (uint256)",

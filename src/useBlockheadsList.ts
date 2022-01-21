@@ -14,7 +14,7 @@ export enum LoadingState {
 export default function useBlockheadsList(address?: string, fallbackAddress?: string) {
   let { account } = useEthers();
   const contract = useBlockheadsContract();
-  console.log({account, address, fallbackAddress})
+  console.log({ account, address, fallbackAddress })
 
   const targetAccount = address || account;
 
@@ -39,7 +39,7 @@ export default function useBlockheadsList(address?: string, fallbackAddress?: st
 
       const promises = [];
 
-      for (var i = 0; i < balance.toNumber(); i++) {
+      for (var i = balance.toNumber() - 1; i >= 0; i--) {
         const id = await contract.tokenOfOwnerByIndex(usingAccount, i);
         promises.push(fetchTokenWithSVG(id.toNumber(), contract));
       }
